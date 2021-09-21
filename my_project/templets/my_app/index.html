@@ -1,0 +1,14 @@
+{% extends 'my_app/base.html' %}
+
+{% block body_block %}
+
+
+<div class="jumbotron">
+<h1> Everone loves Ice-Cream</h1>
+<h2> Let's order ,harry up !!<h2>
+
+</div>
+
+{% load static %}
+<img  src="{% static 'my_app/img.jpg' %}" alt="Girl in a jacket" width="1100" height="700"  >
+{% endblock  %}
