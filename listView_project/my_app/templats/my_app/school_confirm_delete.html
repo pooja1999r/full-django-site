@@ -1,0 +1,18 @@
+{% extends 'my_app/base.html' %}
+
+{% block body_block %}
+
+<h3> Do you want to delete {{school.name}} SCHOOL ? </h3> 
+
+
+<form method="post">
+{% csrf_token %}
+
+<input type='submit' value="Delete" class="btn btn-danger" >
+
+ {% comment %} for cancel request and send back to details page {% endcomment %}
+<a class="btn btn-primary" href="{% url 'base_app:detail' pk=school.pk %}" >Cancel </a>  
+{% comment %}  pk=school.pk is for r'^delete/(?P<pk>\d+)/$' means detail url want some short of pk  {% endcomment %}
+
+</form>
+{% endblock  %}

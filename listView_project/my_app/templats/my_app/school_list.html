@@ -1,0 +1,17 @@
+{% extends 'my_app/base.html' %}
+
+
+{% block body_block %}
+
+<ul>
+<div class="jumbotron">
+<h1 > LIST OF SCHOOLS</h1>
+{% comment %} {% for item  in school_list  %}    school_list is return by ListView model= models.School {% endcomment %}
+ {% for item in schools %}                       {% comment %} we dwfinw this explictly  {% endcomment %}  
+ <h2> <li> <a  href="{{ item.id}}"> {{ item.name }} </a>  </li> </h2>     
+{% endfor %}
+
+</div>
+
+</ul>
+{% endblock  %}

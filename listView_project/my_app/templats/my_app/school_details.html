@@ -1,0 +1,40 @@
+{% extends 'my_app/base.html' %}
+
+
+{% block body_block %}
+<div class='jumbotron' >
+<h1> SCHOOL DETAILS </h1>
+<p> school name : {{school_detail.name}} </p>
+<p> school principal : {{school_detail.principal}} </p>
+<p> school location : {{school_detail.location}} </p>
+
+<h2> Students : </h2>
+
+  {% comment %} students.all comes from models relative name  {% endcomment %}
+<table class="table">
+<thead  class="thead-dark">
+   <tr> 
+   <th>Student Name </th>
+   <th> Student Age: </th>  
+   </tr>
+   </thead>
+ {% for student in school_detail.students.all %}
+<tr> 
+      <td> {{student.name}}  </td>
+     <td> {{student.age}} </td>
+</tr>
+
+{% endfor %}
+</table>
+
+{% comment %} for button {% endcomment %}
+
+<p> <a  class = "btn btn-warning" href="{% url 'base_app:update' pk=school_detail.pk %}" >Update <a>
+ <a  class = "btn btn-danger" href="{% url 'base_app:delete' pk=school_detail.pk %}" >Delete <a>
+ {% comment %} <a  class = "btn btn-primary" href="{% url 'base_app:addstudent' pk=school_detail.pk %}" >Add Student  <a></p> {% endcomment %}
+</div>
+
+{% comment %} for update  {% endcomment %}
+
+
+{% endblock %}
